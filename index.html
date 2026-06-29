@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Nova Ludo</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="top-bar">
+        <div>
+          <p class="eyebrow">Modern mobile-inspired board game</p>
+          <h1>Nova Ludo</h1>
+          <p class="subtitle">Polished turn-based strategy with animated dice, captures, and celebration.</p>
+        </div>
+        <div class="header-actions">
+          <button id="settingsButton" class="ghost-button">Settings</button>
+          <button id="restartButton" class="primary-button">Restart Game</button>
+        </div>
+      </header>
+
+      <main class="game-layout">
+        <section class="panel panel-left">
+          <div class="panel-title-row">
+            <h2>Players</h2>
+            <span class="pill">Live turn</span>
+          </div>
+          <div id="playersList" class="players-list"></div>
+
+          <div class="panel-card">
+            <div class="panel-title-row compact">
+              <h3>Dice</h3>
+              <span id="turnIndicator" class="turn-badge">Red to roll</span>
+            </div>
+            <div class="dice-area">
+              <button id="rollButton" class="dice-button">Roll Dice</button>
+              <div id="diceFace" class="dice-face">?</div>
+            </div>
+            <p id="gameMessage" class="message-box">Tap the dice to start the match.</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-title-row compact">
+              <h3>How to play</h3>
+            </div>
+            <ul class="tips-list">
+              <li>Roll a 6 to release a token from base.</li>
+              <li>Capture enemy tokens on non-safe cells.</li>
+              <li>Rolling a 6 grants one extra turn.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel panel-center">
+          <div class="board-shell">
+            <div id="board" class="board" aria-label="Ludo board"></div>
+            <div id="winnerOverlay" class="winner-overlay hidden" aria-live="polite">
+              <div class="winner-card">
+                <p class="eyebrow">Victory</p>
+                <h2 id="winnerName">Player Wins!</h2>
+                <p id="winnerSubtitle">The board erupts in celebration.</p>
+                <button id="playAgainButton" class="primary-button">Play Again</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="panel panel-right">
+          <div class="panel-card">
+            <div class="panel-title-row compact">
+              <h3>Leaderboard</h3>
+            </div>
+            <ol id="leaderboardList" class="leaderboard-list"></ol>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-title-row compact">
+              <h3>Statistics</h3>
+            </div>
+            <div id="statsGrid" class="stats-grid"></div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-title-row compact">
+              <h3>Match History</h3>
+            </div>
+            <ul id="historyList" class="history-list"></ul>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <div id="settingsOverlay" class="settings-overlay hidden">
+      <div class="settings-card">
+        <div class="panel-title-row compact">
+          <h3>Settings</h3>
+          <button id="closeSettingsButton" class="icon-button" aria-label="Close settings">✕</button>
+        </div>
+        <label class="toggle-row">
+          <span>Sound</span>
+          <input id="soundToggle" type="checkbox" checked />
+        </label>
+        <label class="toggle-row">
+          <span>Animations</span>
+          <input id="animationToggle" type="checkbox" checked />
+        </label>
+        <label class="toggle-row">
+          <span>Dark Mode</span>
+          <input id="darkModeToggle" type="checkbox" checked />
+        </label>
+      </div>
+    </div>
+  </body>
+</html>
